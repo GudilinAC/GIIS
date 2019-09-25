@@ -1,0 +1,47 @@
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.WritableImage?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
+<SplitPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.View" dividerPositions="0.7">
+    <ImageView onMousePressed="#click">
+        <WritableImage fx:id="image" width="505" height="505">
+
+        </WritableImage>
+    </ImageView>
+    <VBox>
+        <HBox><!--general-->
+            <Button onAction="#clear">Очистить</Button>
+            <ToggleButton onAction="#debug">Дебаг</ToggleButton>
+            <Button onAction="#next">Следующий</Button>
+        </HBox>
+        <HBox><!--lab1-->
+            <Button onAction="#cda">ЦДА</Button>
+            <Button onAction="#bresenhem">Брезенхем</Button>
+            <Button onAction="#vu">Ву</Button>
+        </HBox>
+        <HBox><!--lab2-->
+
+        </HBox>
+        <HBox><!--lab3-->
+
+        </HBox>
+        <HBox><!--lab4-->
+
+        </HBox>
+        <HBox><!--lab5-->
+
+        </HBox>
+        <HBox><!--lab6-->
+
+        </HBox>
+        <HBox><!--lab7-->
+
+        </HBox>
+        <HBox><!--lab8-->
+
+        </HBox>
+    </VBox>
+</SplitPane>
