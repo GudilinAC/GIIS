@@ -16,4 +16,12 @@ public class Pixel {
     public Pixel(int x, int y){
         this(x, y, Color.BLACK);
     }
+
+    public Pixel(double x, double y, Color color){
+        this((int)x, (int)y, color);
+    }
+
+    public Pixel(double x, double y){
+        this(x, y, Color.BLACK);
+    }
 }

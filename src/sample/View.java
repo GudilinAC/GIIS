@@ -78,9 +78,6 @@ public class View {
     }
 
     public void click(MouseEvent e) {
-        int XX = (int)e.getX();
-        int YY = (int)e.getY();
-
         int x = ((int) (e.getX() + 1)) / 9;
         int y = ((int) (e.getY() + 1)) / 9;
         iterator = controller.click(new Pixel(x, y));

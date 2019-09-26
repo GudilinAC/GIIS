@@ -6,24 +6,13 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Bresenhem implements DrawAlgorithm {
-    private Pixel firstPixel = null;
-
+public class Bresenhem extends DrawLine {
     @Override
-    public Iterator<Pixel> dot(Pixel pixel) {
-        if (firstPixel == null){
-            firstPixel = pixel;
-            LinkedList<Pixel> pixels = new LinkedList<>();
-            pixels.add(pixel);
-            return pixels.iterator();
-        }
-
-        LinkedList<Pixel> pixels = new LinkedList<>();
-
+    protected void draw(LinkedList<Pixel> pixels) {
         int x = firstPixel.x;
         int y = firstPixel.y;
-        int dx = pixel.x - firstPixel.x;
-        int dy = pixel.y - firstPixel.y;
+        int dx = secondPixel.x - firstPixel.x;
+        int dy = secondPixel.y - firstPixel.y;
         int sx = (dx > 0) ? (1) : (-1);
         int sy = (dy > 0) ? (1) : (-1);
         dx = Math.abs(dx);
@@ -55,8 +44,5 @@ public class Bresenhem implements DrawAlgorithm {
                 pixels.add(new Pixel(x, y));
             }
         }//TODO remove duplicate code
-
-        firstPixel = null;
-        return pixels.iterator();
     }
 }
