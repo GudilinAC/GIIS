@@ -1,16 +1,8 @@
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.image.WritableImage?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
 <SplitPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.View" dividerPositions="0.7">
-    <ImageView onMousePressed="#click">
-        <WritableImage fx:id="image" width="505" height="505">
-
-        </WritableImage>
-    </ImageView>
+    <Canvas onMousePressed="#click" fx:id="canvas" width="505" height="505"/>
     <VBox>
         <HBox><!--general-->
             <Button onAction="#clear">Очистить</Button>
