@@ -2,8 +2,6 @@ package sample.algorithms;
 
 import sample.Pixel;
 
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Bresenhem extends DrawLine {
@@ -13,8 +11,8 @@ public class Bresenhem extends DrawLine {
         int y = firstPixel.y;
         int dx = secondPixel.x - firstPixel.x;
         int dy = secondPixel.y - firstPixel.y;
-        int sx = (dx > 0) ? (1) : (-1);
-        int sy = (dy > 0) ? (1) : (-1);
+        int sx = Integer.compare(dx, 0);
+        int sy = Integer.compare(dy, 0);
         dx = Math.abs(dx);
         dy = Math.abs(dy);
 
@@ -43,6 +41,6 @@ public class Bresenhem extends DrawLine {
                 e += 2 * dx;
                 pixels.add(new Pixel(x, y));
             }
-        }//TODO remove duplicate code
+        }
     }
 }

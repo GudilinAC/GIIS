@@ -83,5 +83,7 @@ public class View {
         iterator = controller.click(new Pixel(x, y));
         if (!debug)
             iterator.forEachRemaining(this::drawPixel);
+        else if(iterator.hasNext())
+            drawPixel(iterator.next());
     }
 }
