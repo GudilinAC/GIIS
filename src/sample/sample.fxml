@@ -1,8 +1,8 @@
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.canvas.Canvas?>
-<SplitPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.View" dividerPositions="0.7">
-    <Canvas onMousePressed="#click" fx:id="canvas" width="505" height="505"/>
+<SplitPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.View">
+    <Canvas onMousePressed="#click" fx:id="canvas" width="901" height="901"/>
     <VBox>
         <HBox><!--general-->
             <Button onAction="#clear">Очистить</Button>
@@ -16,7 +16,7 @@
         </HBox>
         <HBox><!--lab2-->
             <Button onAction="#parabola">x^2 = -2py</Button>
-            <Label>p:</Label>
+            <Label>P:</Label>
             <TextField fx:id="parP">1</TextField>
         </HBox>
         <HBox><!--lab3-->

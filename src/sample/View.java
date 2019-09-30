@@ -3,12 +3,12 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import sample.algorithms.AlgorthmFactory.Type;
 
-import java.awt.*;
 import java.util.Iterator;
 
 public class View {
@@ -21,28 +21,40 @@ public class View {
     private Canvas canvas;
     private PixelWriter writer;
 
+    private final Image clear = new Image("clear.png");
+
+//    private void drawGrid() {
+//        for (int i = 0; i < Settings.MAX_X; i++)
+//            for (int j = 0; j < Settings.MAX_Y; j++){
+//                for (int k = 0; k < Settings.MAX_X * 9 + 1; k++)
+//                    writer.setColor(i * 9, k, Color.GREY);
+//                for (int k = 0; k < Settings.MAX_Y * 9 + 1; k++)
+//                    writer.setColor(k, j * 9, Color.GREY);
+//                }
+//
+//        for (int i = 0; i < Settings.MAX_X * 9 + 1; i++)
+//            writer.setColor(i, Settings.MAX_Y * 9, Color.GREY);
+//        for (int i = 0; i < Settings.MAX_Y * 9 + 1; i++)
+//            writer.setColor(Settings.MAX_X * 9, i, Color.GREY);
+//
+//        WritableImage writableImage = new WritableImage(901, 901);
+//        canvas.snapshot(null, writableImage);
+//        RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+//        try {
+//            ImageIO.write(renderedImage, "png", new File("clear.png"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     @FXML
     private void initialize() {
         writer = canvas.getGraphicsContext2D().getPixelWriter();
-        drawGrid();
-    }
-
-    private void drawGrid() {
-        for (int i = 0; i < 56; i++)
-            for (int j = 0; j < 56; j++)
-                for (int k = 0; k < 505; k++) {
-                    writer.setColor(i * 9, k, Color.GREY);
-                    writer.setColor(k, j * 9, Color.GREY);
-                }
-
-        for (int i = 0; i < 505; i++) {
-            writer.setColor(504, i, Color.GREY);
-            writer.setColor(i, 504, Color.GREY);
-        }
+        loadClear();
     }
 
     private void drawPixel(Pixel pixel) {
-        if (pixel.x > 55 || pixel.y > 55)
+        if (pixel.x > Settings.MAX_X || pixel.y > Settings.MAX_Y)
             return;
 
         int dx = pixel.x * 9 + 1;
@@ -55,8 +67,12 @@ public class View {
 
     public void clear(ActionEvent e) {
         controller.newAlgorithm(null);
-        canvas.getGraphicsContext2D().clearRect(0, 0, 505, 505);
-        drawGrid();
+        canvas.getGraphicsContext2D().clearRect(0, 0, Settings.MAX_X, Settings.MAX_Y);
+        loadClear();
+    }
+
+    private void loadClear() {
+        canvas.getGraphicsContext2D().drawImage(clear, 0, 0);
     }
 
     public void debug(ActionEvent e) {

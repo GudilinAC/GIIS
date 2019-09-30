@@ -18,7 +18,7 @@ public class Pixel {
     }
 
     public Pixel(double x, double y, Color color){
-        this((int)(x + 0.5), (int)(y + 0.5), color);
+        this((int) (x), (int) (y), color);
     }
 
     public Pixel(double x, double y){
