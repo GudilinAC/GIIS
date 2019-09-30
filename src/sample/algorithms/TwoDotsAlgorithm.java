@@ -5,7 +5,7 @@ import sample.Pixel;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public abstract class DrawLine implements DrawAlgorithm{
+public abstract class TwoDotsAlgorithm implements DrawAlgorithm{
     protected Pixel firstPixel = null;
     protected Pixel secondPixel = null;
 

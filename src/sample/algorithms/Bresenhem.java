@@ -4,7 +4,7 @@ import sample.Pixel;
 
 import java.util.LinkedList;
 
-public class Bresenhem extends DrawLine {
+public class Bresenhem extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
         int x = firstPixel.x;

@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import sample.algorithms.AlgorthmFactory.Type;
 
+import java.awt.*;
 import java.util.Iterator;
 
 public class View {
@@ -16,29 +17,31 @@ public class View {
     private boolean debug = false;
     private Iterator<Pixel> iterator;
 
-    @FXML private Canvas canvas;
+    @FXML
+    private Canvas canvas;
     private PixelWriter writer;
 
-    @FXML private void initialize(){
+    @FXML
+    private void initialize() {
         writer = canvas.getGraphicsContext2D().getPixelWriter();
         drawGrid();
     }
 
-    private void drawGrid(){
+    private void drawGrid() {
         for (int i = 0; i < 56; i++)
             for (int j = 0; j < 56; j++)
-                for (int k = 0; k < 505; k++){
+                for (int k = 0; k < 505; k++) {
                     writer.setColor(i * 9, k, Color.GREY);
                     writer.setColor(k, j * 9, Color.GREY);
                 }
 
-        for (int i = 0; i < 505; i++){
+        for (int i = 0; i < 505; i++) {
             writer.setColor(504, i, Color.GREY);
             writer.setColor(i, 504, Color.GREY);
         }
     }
 
-    private void drawPixel(Pixel pixel){
+    private void drawPixel(Pixel pixel) {
         if (pixel.x > 55 || pixel.y > 55)
             return;
 
@@ -47,13 +50,13 @@ public class View {
 
         for (int i = 0; i < 8; i++)
             for (int j = 0; j < 8; j++)
-               writer.setColor(dx + i, dy + j, pixel.color);
+                writer.setColor(dx + i, dy + j, pixel.color);
     }
 
     public void clear(ActionEvent e) {
-      controller.newAlgorithm(null);
-      canvas.getGraphicsContext2D().clearRect(0, 0, 505, 505);
-      drawGrid();
+        controller.newAlgorithm(null);
+        canvas.getGraphicsContext2D().clearRect(0, 0, 505, 505);
+        drawGrid();
     }
 
     public void debug(ActionEvent e) {
@@ -77,13 +80,25 @@ public class View {
         controller.newAlgorithm(Type.Vu);
     }
 
+    @FXML
+    private TextField parP;
+
+    public void parabola(ActionEvent e) {
+        double p = 1;
+        try {
+            p = Double.parseDouble(parP.getText());
+        }
+        catch (NumberFormatException ex){}
+        controller.newAlgorithm(Type.Parabola, p);
+    }
+
     public void click(MouseEvent e) {
         int x = ((int) (e.getX() + 1)) / 9;
         int y = ((int) (e.getY() + 1)) / 9;
         iterator = controller.click(new Pixel(x, y));
         if (!debug)
             iterator.forEachRemaining(this::drawPixel);
-        else if(iterator.hasNext())
+        else if (iterator.hasNext())
             drawPixel(iterator.next());
     }
 }

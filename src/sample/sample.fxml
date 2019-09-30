@@ -15,7 +15,9 @@
             <Button onAction="#vu">Ву</Button>
         </HBox>
         <HBox><!--lab2-->
-
+            <Button onAction="#parabola">x^2 = -2py</Button>
+            <Label>p:</Label>
+            <TextField fx:id="parP">1</TextField>
         </HBox>
         <HBox><!--lab3-->
 

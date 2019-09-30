@@ -4,7 +4,7 @@ import sample.Pixel;
 
 import java.util.LinkedList;
 
-public class Cda extends DrawLine {
+public class Cda extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
         int d = Math.max (Math.abs(secondPixel.x - firstPixel.x), Math.abs(secondPixel.y - firstPixel.y));

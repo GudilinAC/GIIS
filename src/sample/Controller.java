@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class Controller {
     private DrawAlgorithm drawAlgorithm = AlgorthmFactory.getAlgorithm(null);
 
-    public void newAlgorithm(Type type){
+    public void newAlgorithm(Type type, Object... params){
         drawAlgorithm = AlgorthmFactory.getAlgorithm(type);
     }
 

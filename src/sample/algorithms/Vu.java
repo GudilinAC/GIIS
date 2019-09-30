@@ -5,7 +5,7 @@ import sample.Pixel;
 
 import java.util.LinkedList;
 
-public class Vu extends DrawLine {
+public class Vu extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
         int x = firstPixel.x;
