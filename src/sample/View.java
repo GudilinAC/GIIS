@@ -5,11 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import sample.algorithms.AlgorthmFactory.Type;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class View {
     private Controller controller = new Controller();
@@ -20,6 +23,7 @@ public class View {
     @FXML
     private Canvas canvas;
     private PixelWriter writer;
+    private PixelReader reader;
 
     private final Image clear = new Image("clear.png");
 
@@ -53,6 +57,8 @@ public class View {
         loadClear();
     }
 
+    private LinkedList<Pixel> tempList = null;
+
     private void drawPixel(Pixel pixel) {
         if (pixel.x > Settings.MAX_X || pixel.y > Settings.MAX_Y)
             return;
@@ -63,12 +69,6 @@ public class View {
         for (int i = 0; i < 8; i++)
             for (int j = 0; j < 8; j++)
                 writer.setColor(dx + i, dy + j, pixel.color);
-    }
-
-    public void clear(ActionEvent e) {
-        controller.newAlgorithm(null);
-        canvas.getGraphicsContext2D().clearRect(0, 0, Settings.MAX_X, Settings.MAX_Y);
-        loadClear();
     }
 
     private void loadClear() {
@@ -96,6 +96,22 @@ public class View {
         controller.newAlgorithm(Type.Vu);
     }
 
+    public void clear(ActionEvent e) {
+        controller.newAlgorithm(null);
+        clearTemp();
+        loadClear();
+    }
+
+    private void clearTemp(){
+        if (tempList != null)
+            tempList.forEach(this::drawPixel);
+        tempList = null;
+    }
+
+    public void circle(ActionEvent e) {
+
+    }
+
     @FXML
     private TextField parP;
 
@@ -109,6 +125,7 @@ public class View {
     }
 
     public void click(MouseEvent e) {
+        clearTemp();
         int x = ((int) (e.getX() + 1)) / 9;
         int y = ((int) (e.getY() + 1)) / 9;
         iterator = controller.click(new Pixel(x, y));
@@ -116,5 +133,20 @@ public class View {
             iterator.forEachRemaining(this::drawPixel);
         else if (iterator.hasNext())
             drawPixel(iterator.next());
+    }
+
+    public void ellipse(ActionEvent e) {
+
+    }
+
+    public void mouseMove(MouseEvent e) {
+        int x = ((int) (e.getX() + 1)) / 9;
+        int y = ((int) (e.getY() + 1)) / 9;
+        clearTemp();
+        tempList = controller.followMouse(new Pixel(x, y));
+        tempList.forEach(p -> {
+            drawPixel(p);
+            p.color = Color.WHITE;
+        });
     }
 }

@@ -2,7 +2,6 @@ package sample.algorithms;
 
 import sample.Pixel;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public abstract class OneDotAlgorithm implements DrawAlgorithm{
@@ -14,12 +13,17 @@ public abstract class OneDotAlgorithm implements DrawAlgorithm{
     }
 
     @Override
-    public Iterator<Pixel> dot(Pixel pixel) {
+    public LinkedList<Pixel> drawAndReset(Pixel pixel) {
 
         LinkedList<Pixel> pixels = new LinkedList<>();
         this.pixel = pixel;
         draw(pixels);
-        return pixels.iterator();
+        return pixels;
+    }
+
+    @Override
+    public LinkedList<Pixel> drawNoReset(Pixel pixel) {
+        return new LinkedList<>();
     }
 
     protected abstract void draw(LinkedList<Pixel> pixels);

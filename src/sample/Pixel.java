@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 public class Pixel {
     public final int x;
     public final int y;
-    public final Color color;
+    public Color color;
 
     public Pixel(int x, int y, Color color){
         this.x = x;

@@ -1,40 +1,46 @@
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <SplitPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.View">
-    <Canvas onMousePressed="#click" fx:id="canvas" width="901" height="901"/>
-    <VBox>
-        <HBox><!--general-->
+    <Canvas onMouseMoved="#mouseMove" onMousePressed="#click" fx:id="canvas" width="901" height="901"/>
+    <VBox spacing="5">
+        <padding>
+            <Insets top="5" right="5" bottom="5" left="5"/>
+        </padding>
+        <HBox spacing="5"><!--general-->
             <Button onAction="#clear">Очистить</Button>
             <ToggleButton onAction="#debug">Дебаг</ToggleButton>
             <Button onAction="#next">Следующий</Button>
         </HBox>
-        <HBox><!--lab1-->
+        <HBox spacing="5"><!--lab1-->
             <Button onAction="#cda">ЦДА</Button>
             <Button onAction="#bresenhem">Брезенхем</Button>
             <Button onAction="#vu">Ву</Button>
         </HBox>
-        <HBox><!--lab2-->
+        <HBox spacing="5"><!--lab2-->
+            <Button onAction="#circle">Окружность</Button>
+            <Button onAction="#ellipse">Эллипс</Button>
             <Button onAction="#parabola">x^2 = -2py</Button>
             <Label>P:</Label>
             <TextField fx:id="parP">1</TextField>
         </HBox>
-        <HBox><!--lab3-->
+        <HBox spacing="5"><!--lab3-->
 
         </HBox>
-        <HBox><!--lab4-->
+        <HBox spacing="5"><!--lab4-->
 
         </HBox>
-        <HBox><!--lab5-->
+        <HBox spacing="5"><!--lab5-->
 
         </HBox>
-        <HBox><!--lab6-->
+        <HBox spacing="5"><!--lab6-->
 
         </HBox>
-        <HBox><!--lab7-->
+        <HBox spacing="5"><!--lab7-->
 
         </HBox>
-        <HBox><!--lab8-->
+        <HBox spacing="5"><!--lab8-->
 
         </HBox>
     </VBox>

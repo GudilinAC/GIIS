@@ -2,8 +2,10 @@ package sample.algorithms;
 
 import sample.Pixel;
 
-import java.util.Iterator;
+import java.util.LinkedList;
 
 public interface DrawAlgorithm {
-    Iterator<Pixel> dot(Pixel pixel);
+    LinkedList<Pixel> drawAndReset(Pixel pixel);
+
+    LinkedList<Pixel> drawNoReset(Pixel pixel);
 }
