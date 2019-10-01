@@ -23,7 +23,6 @@ public class View {
     @FXML
     private Canvas canvas;
     private PixelWriter writer;
-    private PixelReader reader;
 
     private final Image clear = new Image("clear.png");
 
@@ -59,7 +58,7 @@ public class View {
 
     private LinkedList<Pixel> tempList = null;
 
-    private void drawPixel(Pixel pixel) {
+    private void drawPixel(Pixel pixel, Color color) {
         if (pixel.x > Settings.MAX_X || pixel.y > Settings.MAX_Y)
             return;
 
@@ -68,7 +67,11 @@ public class View {
 
         for (int i = 0; i < 8; i++)
             for (int j = 0; j < 8; j++)
-                writer.setColor(dx + i, dy + j, pixel.color);
+                writer.setColor(dx + i, dy + j, color);
+    }
+
+    private void drawPixel(Pixel pixel) {
+        drawPixel(pixel, pixel.color);
     }
 
     private void loadClear() {
@@ -104,7 +107,7 @@ public class View {
 
     private void clearTemp(){
         if (tempList != null)
-            tempList.forEach(this::drawPixel);
+            tempList.forEach(p -> drawPixel(p, Color.WHITE));
         tempList = null;
     }
 
@@ -136,9 +139,6 @@ public class View {
         int y = ((int) (e.getY() + 1)) / 9;
         clearTemp();
         tempList = controller.followMouse(new Pixel(x, y));
-        tempList.forEach(p -> {
-            drawPixel(p);
-            p.color = Color.WHITE;
-        });
+        tempList.forEach(this::drawPixel);
     }
 }

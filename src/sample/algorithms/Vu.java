@@ -5,6 +5,8 @@ import sample.Pixel;
 
 import java.util.LinkedList;
 
+import static sample.algorithms.Global.sign;
+
 public class Vu extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
@@ -70,9 +72,5 @@ public class Vu extends TwoDotsAlgorithm {
         }
 
         pixels.add(new Pixel(secondPixel.x, secondPixel.y));
-    }
-
-    private int sign(double x) {
-        return (x > 0) ? 1 : (x < 0) ? -1 : 0;
     }
 }
