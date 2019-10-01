@@ -1,6 +1,5 @@
 package sample.algorithms;
 
-import javafx.scene.paint.Color;
 import sample.Pixel;
 import sample.Settings;
 
@@ -15,7 +14,8 @@ public class Parabola extends TwoDotsAlgorithm {
         if (secondPixel.x == firstPixel.x && secondPixel.y == firstPixel.y) return;
 
         if (secondPixel.x == firstPixel.x) {
-            for (int i = firstPixel.y; i < Settings.MAX_Y && i >= 0; i += sign(secondPixel.y - firstPixel.x))
+            int s = sign(secondPixel.y - firstPixel.y);
+            for (int i = firstPixel.y; i < Settings.MAX_Y && i >= 0; i += s)
                 pixels.add(new Pixel(firstPixel.x, i));
             return;
         }
