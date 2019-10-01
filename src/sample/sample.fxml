@@ -21,9 +21,7 @@
         <HBox spacing="5"><!--lab2-->
             <Button onAction="#circle">Окружность</Button>
             <Button onAction="#ellipse">Эллипс</Button>
-            <Button onAction="#parabola">x^2 = -2py</Button>
-            <Label>P:</Label>
-            <TextField fx:id="parP">1</TextField>
+            <Button onAction="#parabola">Парабола</Button>
         </HBox>
         <HBox spacing="5"><!--lab3-->
 

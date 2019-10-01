@@ -8,7 +8,7 @@ public class AlgorthmFactory {
         Parabola
     }
 
-    public static DrawAlgorithm getAlgorithm(Type type, Object... params) {
+    public static DrawAlgorithm getAlgorithm(Type type) {
         if (type == null) return new Empty();
         switch (type) {
             case Cda:
@@ -18,7 +18,7 @@ public class AlgorthmFactory {
             case Vu:
                 return new Vu();
             case Parabola:
-                return new Parabola((double)params[0]);
+                return new Parabola();
             default:
                 return null;
         }

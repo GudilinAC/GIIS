@@ -10,8 +10,8 @@ import java.util.LinkedList;
 public class Controller {
     private DrawAlgorithm drawAlgorithm = AlgorthmFactory.getAlgorithm(null);
 
-    public void newAlgorithm(Type type, Object... params){
-        drawAlgorithm = AlgorthmFactory.getAlgorithm(type, params);
+    public void newAlgorithm(Type type){
+        drawAlgorithm = AlgorthmFactory.getAlgorithm(type);
     }
 
     public LinkedList<Pixel> followMouse(Pixel pixel) {

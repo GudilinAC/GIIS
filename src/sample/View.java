@@ -112,16 +112,8 @@ public class View {
 
     }
 
-    @FXML
-    private TextField parP;
-
     public void parabola(ActionEvent e) {
-        double p = 1;
-        try {
-            p = Double.parseDouble(parP.getText());
-        }
-        catch (NumberFormatException ex){}
-        controller.newAlgorithm(Type.Parabola, p);
+        controller.newAlgorithm(Type.Parabola);
     }
 
     public void click(MouseEvent e) {
