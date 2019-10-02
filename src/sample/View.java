@@ -3,10 +3,8 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.TextField;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import sample.algorithms.AlgorthmFactory.Type;
@@ -17,12 +15,26 @@ import java.util.LinkedList;
 public class View {
     private Controller controller = new Controller();
 
+    private Color[][] grid = new Color[Settings.MAX_X][Settings.MAX_Y];
+
+    private void setSell(int x, int y, Color color){
+        if (x >= Settings.MAX_X || y >= Settings.MAX_Y || x < 0 || y < 0)
+            return;
+        grid[x][y] = color;
+    }
+
+    private Color getSell(int x, int y){
+        if (x >= Settings.MAX_X || y >= Settings.MAX_Y || x < 0 || y < 0)
+            return Color.WHITE;
+        return grid[x][y];
+    }
+
     private boolean debug = false;
     private Iterator<Pixel> iterator;
 
     @FXML
     private Canvas canvas;
-    private PixelWriter writer;
+    private GraphicsContext context;
 
     private final Image clear = new Image("clear.png");
 
@@ -52,22 +64,31 @@ public class View {
 
     @FXML
     private void initialize() {
-        writer = canvas.getGraphicsContext2D().getPixelWriter();
+        context = canvas.getGraphicsContext2D();
         loadClear();
     }
 
     private LinkedList<Pixel> tempList = null;
 
-    private void drawPixel(Pixel pixel, Color color) {
-        if (pixel.x > Settings.MAX_X || pixel.y > Settings.MAX_Y)
-            return;
-
+    private void draw(Pixel pixel, Color color){
         int dx = pixel.x * 9 + 1;
         int dy = pixel.y * 9 + 1;
 
-        for (int i = 0; i < 8; i++)
-            for (int j = 0; j < 8; j++)
-                writer.setColor(dx + i, dy + j, color);
+        context.setFill(color);
+        context.fillRect(dx, dy, 8 ,8);
+    }
+
+    private void drawPixel(Pixel pixel, Color color) {
+        if (pixel.x >= Settings.MAX_X || pixel.y >= Settings.MAX_Y || pixel.x < 0 || pixel.y < 0)
+            return;
+        setSell(pixel.x, pixel.y, color);
+        draw(pixel, color);
+    }
+
+    private void drawTemp(Pixel pixel){
+        if (pixel.x >= Settings.MAX_X || pixel.y >= Settings.MAX_Y || pixel.x < 0 || pixel.y < 0)
+            return;
+        draw(pixel, pixel.color);
     }
 
     private void drawPixel(Pixel pixel) {
@@ -75,7 +96,10 @@ public class View {
     }
 
     private void loadClear() {
-        canvas.getGraphicsContext2D().drawImage(clear, 0, 0);
+        for (int x = 0; x < Settings.MAX_X; x++)
+            for (int y = 0; y < Settings.MAX_Y; y++)
+                setSell(x,y,Color.WHITE);
+        context.drawImage(clear, 0, 0);
     }
 
     public void debug(ActionEvent e) {
@@ -107,7 +131,7 @@ public class View {
 
     private void clearTemp(){
         if (tempList != null)
-            tempList.forEach(p -> drawPixel(p, Color.WHITE));
+            tempList.forEach(p -> draw(p, getSell(p.x, p.y)));
         tempList = null;
     }
 
@@ -139,6 +163,6 @@ public class View {
         int y = ((int) (e.getY() + 1)) / 9;
         clearTemp();
         tempList = controller.followMouse(new Pixel(x, y));
-        tempList.forEach(this::drawPixel);
+        tempList.forEach(this::drawTemp);
     }
 }
