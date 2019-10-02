@@ -11,8 +11,6 @@ public class Parabola extends TwoDotsAlgorithm {
 
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
-        if (secondPixel.x == firstPixel.x && secondPixel.y == firstPixel.y) return;
-
         if (secondPixel.x == firstPixel.x) {
             int s = sign(secondPixel.y - firstPixel.y);
             for (int i = firstPixel.y; i < Settings.MAX_Y && i >= 0; i += s)

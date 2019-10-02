@@ -139,6 +139,10 @@ public class View {
 
     }
 
+    public void ellipse(ActionEvent e) {
+
+    }
+
     public void parabola(ActionEvent e) {
         controller.newAlgorithm(Type.Parabola);
     }
@@ -154,9 +158,7 @@ public class View {
             drawPixel(iterator.next());
     }
 
-    public void ellipse(ActionEvent e) {
 
-    }
 
     public void mouseMove(MouseEvent e) {
         int x = ((int) (e.getX() + 1)) / 9;

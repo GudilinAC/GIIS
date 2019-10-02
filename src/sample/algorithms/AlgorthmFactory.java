@@ -5,6 +5,8 @@ public class AlgorthmFactory {
         Cda,
         Bresenhem,
         Vu,
+        Circle,
+        Ellipse,
         Parabola
     }
 
@@ -17,6 +19,10 @@ public class AlgorthmFactory {
                 return new Bresenhem();
             case Vu:
                 return new Vu();
+            case Circle:
+                return new Circle();
+            case Ellipse:
+                return new Ellipse();
             case Parabola:
                 return new Parabola();
             default:
