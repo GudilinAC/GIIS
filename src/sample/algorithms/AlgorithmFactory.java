@@ -1,6 +1,6 @@
 package sample.algorithms;
 
-public class AlgorthmFactory {
+public class AlgorithmFactory {
     public enum Type {
         Cda,
         Bresenhem,

@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import sample.algorithms.AlgorthmFactory.Type;
+import sample.algorithms.AlgorithmFactory.Type;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -160,7 +160,7 @@ public class View {
     }
 
     public void circle(ActionEvent e) {
-
+        controller.newAlgorithm(Type.Circle);
     }
 
     public void ellipse(ActionEvent e) {

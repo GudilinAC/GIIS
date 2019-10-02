@@ -31,6 +31,8 @@ public abstract class TwoDotsAlgorithm implements DrawAlgorithm{
         if (firstPixel != null) {
             LinkedList<Pixel> pixels = new LinkedList<>();
             secondPixel = pixel;
+            if (secondPixel.x == firstPixel.x && secondPixel.y == firstPixel.y)
+                return pixels;
             draw(pixels);
             return pixels;
         } else return new LinkedList<>();
