@@ -4,8 +4,6 @@ import sample.Pixel;
 
 import java.util.LinkedList;
 
-import static sample.algorithms.Global.sign;
-
 public class Bresenhem extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
@@ -13,8 +11,8 @@ public class Bresenhem extends TwoDotsAlgorithm {
         int y = firstPixel.y;
         int dx = secondPixel.x - firstPixel.x;
         int dy = secondPixel.y - firstPixel.y;
-        int sx = sign(dx);
-        int sy = sign(dy);
+        int sx = Global.sign(dx);
+        int sy = Global.sign(dy);
         dx = Math.abs(dx);
         dy = Math.abs(dy);
 
@@ -43,6 +41,6 @@ public class Bresenhem extends TwoDotsAlgorithm {
                 e += 2 * dx;
                 pixels.add(new Pixel(x, y));
             }
-        }
+        }//0-0, 11-5, брезенхем на бумаге
     }
 }

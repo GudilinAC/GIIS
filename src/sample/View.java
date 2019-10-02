@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelWriter;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import sample.algorithms.AlgorthmFactory.Type;
@@ -35,6 +36,7 @@ public class View {
     @FXML
     private Canvas canvas;
     private GraphicsContext context;
+    private PixelWriter writer;
 
     private final Image clear = new Image("clear.png");
 
@@ -65,28 +67,36 @@ public class View {
     @FXML
     private void initialize() {
         context = canvas.getGraphicsContext2D();
+        writer = context.getPixelWriter();
         loadClear();
     }
 
     private LinkedList<Pixel> tempList = null;
 
     private void draw(Pixel pixel, Color color){
-        int dx = pixel.x * 9 + 1;
-        int dy = pixel.y * 9 + 1;
+        if (scale) {
+            int dx = pixel.x * 9 + 1;
+            int dy = pixel.y * 9 + 1;
 
-        context.setFill(color);
-        context.fillRect(dx, dy, 8 ,8);
+            context.setFill(color);
+            context.fillRect(dx, dy, 8, 8);
+        } else
+            writer.setColor(pixel.x, pixel.y, color);
+    }
+
+    private boolean isOutOfLimits(Pixel pixel) {
+        return pixel.x < 0 || pixel.y < 0 || pixel.x >= Settings.MAX_X || pixel.y >= Settings.MAX_Y;
     }
 
     private void drawPixel(Pixel pixel, Color color) {
-        if (pixel.x >= Settings.MAX_X || pixel.y >= Settings.MAX_Y || pixel.x < 0 || pixel.y < 0)
+        if (isOutOfLimits(pixel))
             return;
         setSell(pixel.x, pixel.y, color);
         draw(pixel, color);
     }
 
     private void drawTemp(Pixel pixel){
-        if (pixel.x >= Settings.MAX_X || pixel.y >= Settings.MAX_Y || pixel.x < 0 || pixel.y < 0)
+        if (isOutOfLimits(pixel))
             return;
         draw(pixel, pixel.color);
     }
@@ -96,10 +106,16 @@ public class View {
     }
 
     private void loadClear() {
+        grid = new Color[Settings.MAX_X][Settings.MAX_Y];
         for (int x = 0; x < Settings.MAX_X; x++)
             for (int y = 0; y < Settings.MAX_Y; y++)
-                setSell(x,y,Color.WHITE);
-        context.drawImage(clear, 0, 0);
+                setSell(x, y, Color.WHITE);
+        if (scale)
+            context.drawImage(clear, 0, 0);
+        else {
+            context.setFill(Color.WHITE);
+            context.fillRect(0, 0, Settings.MAX_X, Settings.MAX_Y);
+        }
     }
 
     public void debug(ActionEvent e) {
@@ -109,6 +125,14 @@ public class View {
     public void next(ActionEvent e) {
         if (debug && iterator != null && iterator.hasNext())
             drawPixel(iterator.next());
+    }
+
+    private boolean scale = true;
+
+    public void scale(ActionEvent e) {
+        scale = !scale;
+        Settings.scale(scale);
+        loadClear();
     }
 
     public void cda(ActionEvent e) {
@@ -147,24 +171,30 @@ public class View {
         controller.newAlgorithm(Type.Parabola);
     }
 
+    private Pixel getPixel(MouseEvent e) {
+        int x, y;
+        if (scale) {
+            x = ((int) (e.getX() + 1)) / 9;
+            y = ((int) (e.getY() + 1)) / 9;
+        } else {
+            x = (int) e.getX();
+            y = (int) e.getY();
+        }
+        return new Pixel(x, y);
+    }
+
     public void click(MouseEvent e) {
         clearTemp();
-        int x = ((int) (e.getX() + 1)) / 9;
-        int y = ((int) (e.getY() + 1)) / 9;
-        iterator = controller.click(new Pixel(x, y));
+        iterator = controller.click(getPixel(e));
         if (!debug)
             iterator.forEachRemaining(this::drawPixel);
-        else if (iterator.hasNext())
-            drawPixel(iterator.next());
     }
 
 
 
     public void mouseMove(MouseEvent e) {
-        int x = ((int) (e.getX() + 1)) / 9;
-        int y = ((int) (e.getY() + 1)) / 9;
         clearTemp();
-        tempList = controller.followMouse(new Pixel(x, y));
+        tempList = controller.followMouse(getPixel(e));
         tempList.forEach(this::drawTemp);
     }
 }

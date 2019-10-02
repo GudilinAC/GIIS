@@ -12,6 +12,7 @@
             <Button onAction="#clear">Очистить</Button>
             <ToggleButton onAction="#debug">Дебаг</ToggleButton>
             <Button onAction="#next">Следующий</Button>
+            <Button onAction="#scale">Размер</Button>
         </HBox>
         <HBox spacing="5"><!--lab1-->
             <Button onAction="#cda">ЦДА</Button>
