@@ -1,5 +1,6 @@
 out/
 target
+uiDesigner.xml
 
 # Compiled class file
 *.class

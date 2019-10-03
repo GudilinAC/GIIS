@@ -1,4 +1,4 @@
-package sample.algorithms;
+package sample.algorithms.TwoDot;
 
 import javafx.scene.paint.Color;
 import sample.Pixel;

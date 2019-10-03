@@ -1,6 +1,7 @@
-package sample.algorithms;
+package sample.algorithms.TwoDot;
 
 import sample.Pixel;
+import sample.algorithms.Global;
 
 import java.util.LinkedList;
 

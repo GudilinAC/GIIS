@@ -1,5 +1,10 @@
 package sample.algorithms;
 
+import sample.algorithms.MultiDot.BSpline;
+import sample.algorithms.MultiDot.Bezier;
+import sample.algorithms.MultiDot.Ermit;
+import sample.algorithms.TwoDot.*;
+
 public class AlgorithmFactory {
     public static DrawAlgorithm getAlgorithm(Type type) {
         if (type == null) return new Empty();
@@ -16,6 +21,12 @@ public class AlgorithmFactory {
                 return new Ellipse();
             case Parabola:
                 return new Parabola();
+            case Ermit:
+                return new Ermit();
+            case Bezier:
+                return new Bezier();
+            case BSpline:
+                return new BSpline();
             default:
                 return null;
         }
@@ -27,6 +38,9 @@ public class AlgorithmFactory {
         Vu,
         Circle,
         Ellipse,
-        Parabola
+        Parabola,
+        Ermit,
+        Bezier,
+        BSpline
     }
 }

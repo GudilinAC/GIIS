@@ -25,7 +25,10 @@
             <Button onAction="#parabola">Парабола</Button>
         </HBox>
         <HBox spacing="5"><!--lab3-->
-
+            <Button onAction="#ermit">Эрмит</Button>
+            <Button onAction="#bezier">Безье</Button>
+            <Button onAction="#bspline">B-сплайн</Button>
+            <Button onAction="#reducting">Редактировать</Button>
         </HBox>
         <HBox spacing="5"><!--lab4-->
 

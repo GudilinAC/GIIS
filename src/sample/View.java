@@ -165,6 +165,22 @@ public class View {
         controller.newAlgorithm(Type.Parabola);
     }
 
+    public void ermit(ActionEvent e){
+        controller.newAlgorithm(Type.Ermit);
+    }
+
+    public void bezier(ActionEvent e){
+        controller.newAlgorithm(Type.Bezier);
+    }
+
+    public void bspline(ActionEvent e){
+        controller.newAlgorithm(Type.BSpline);
+    }
+
+    public void reducting(ActionEvent e){
+
+    }
+
     private Pixel getPixel(MouseEvent e) {
         int x, y;
         if (scale) {

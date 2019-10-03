@@ -1,4 +1,4 @@
-package sample.algorithms;
+package sample.algorithms.TwoDot;
 
 import sample.Pixel;
 import sample.Settings;
