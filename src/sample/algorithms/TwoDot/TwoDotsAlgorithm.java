@@ -11,32 +11,42 @@ public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
 
     @Override
     public LinkedList<Pixel> drawAndReset(Pixel pixel) {
+        LinkedList<Pixel> pixels = new LinkedList<>();
         if (firstPixel == null) {
             firstPixel = pixel;
-            LinkedList<Pixel> pixels = new LinkedList<>();
             pixels.add(pixel);
-            return pixels;
+        } else {
+            secondPixel = pixel;
+            if (secondPixel.x != firstPixel.x || secondPixel.y != firstPixel.y)
+                draw(pixels);
+            clear();
         }
-
-        LinkedList<Pixel> pixels = new LinkedList<>();
-        secondPixel = pixel;
-        if (secondPixel.x == firstPixel.x && secondPixel.y == firstPixel.y)
-            return pixels;
-        draw(pixels);
-        firstPixel = null;
         return pixels;
     }
 
     @Override
     public LinkedList<Pixel> drawNoReset(Pixel pixel) {
+        LinkedList<Pixel> pixels = new LinkedList<>();
         if (firstPixel != null) {
-            LinkedList<Pixel> pixels = new LinkedList<>();
             secondPixel = pixel;
-            if (secondPixel.x == firstPixel.x && secondPixel.y == firstPixel.y)
-                return pixels;
-            draw(pixels);
-            return pixels;
-        } else return new LinkedList<>();
+            if (secondPixel.x != firstPixel.x || secondPixel.y != firstPixel.y)
+                draw(pixels);
+        }
+        return pixels;
+    }
+
+    @Override
+    public LinkedList<Pixel> drawAll(Pixel... inputs) {
+        LinkedList<Pixel> pixels = new LinkedList<>();
+        for (Pixel pixel : inputs) {
+            pixels.addAll(drawAndReset(pixel));
+        }
+        return pixels;
+    }
+
+    @Override
+    public void clear(){
+        firstPixel = null;
     }
 
     protected abstract void draw(LinkedList<Pixel> pixels);

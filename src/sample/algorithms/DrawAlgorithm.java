@@ -8,4 +8,8 @@ public interface DrawAlgorithm {
     LinkedList<Pixel> drawAndReset(Pixel pixel);
 
     LinkedList<Pixel> drawNoReset(Pixel pixel);
+
+    LinkedList<Pixel> drawAll(Pixel... inputs);
+
+    void clear();
 }
