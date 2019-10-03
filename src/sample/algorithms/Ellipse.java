@@ -7,17 +7,16 @@ import java.util.LinkedList;
 public class Ellipse extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
-
         int dx = Math.abs(secondPixel.x - firstPixel.x);
         int dy = Math.abs(secondPixel.y - firstPixel.y);
 
         if (dx == 0) {
-            for (int i = - dy; i <= dy; i++)
+            for (int i = -dy; i <= dy; i++)
                 pixels.add(new Pixel(firstPixel.x, firstPixel.y + i));
             return;
         }
         if (dy == 0) {
-            for (int i = - dx; i <= dx; i++)
+            for (int i = -dx; i <= dx; i++)
                 pixels.add(new Pixel(firstPixel.x + i, firstPixel.y));
             return;
         }
@@ -25,29 +24,33 @@ public class Ellipse extends TwoDotsAlgorithm {
         int a2 = 2 * dx * dx;
         int b2 = 2 * dy * dy;
 
-        Pixel pixel45 = new Pixel(
-                (a2 / Math.pow(b2 + a2, 0.5)) + 0.5,
-                (b2 / Math.pow(b2 + a2, 0.5)) + 0.5
-        );
-
         LinkedList<Pixel> segment = new LinkedList<>();
 
-        double e;
-        int x = (int) (Math.pow(a2, 0.5) + 0.5);
-        int y;
+        double e = a2 + b2 - 2 * a2 * Math.pow(b2, 0.5);
+        int x = 0;
+        int y = (int) (Math.pow(b2, 0.5) + 0.5);
 
-        for (y = 0; y <= pixel45.y; y++) {
-            e = (double) (x * x) / a2 + (double) (y * y) / b2 - 1;
-            if (e > 0)
-                x--;
-            if (x < 0) break;
-            segment.add(new Pixel(x, y));
-        }
-
-        for (; x >= 0; x--) {
-            e = (double) (x * x) / a2 + (double) (y * y) / b2 - 1;
-            if (e < 0)
-                y++;
+        segment.add(new Pixel(x, y));
+        while (y >= 0) {
+            if (e < 0) {
+                x++;
+                e += b2 * (2 * x + 1);
+                if ((2 * (e + a2 * y) - 1) > 0) {
+                    y--;
+                    e += a2 * (1 - 2 * y);
+                }
+            } else if (e > 0) {
+                y--;
+                e += a2 * (1 - 2 * y);
+                if ((2 * (e - b2 * x) - 1) <= 0) {
+                    x++;
+                    e += b2 * (2 * x + 1);
+                }
+            } else {
+                x++;
+                y--;
+                e += b2 * (2 * x + 1) + a2 * (1 - 2 * y);
+            }
 
             segment.add(new Pixel(x, y));
         }
