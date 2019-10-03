@@ -23,7 +23,7 @@ public class Parabola extends TwoDotsAlgorithm {
             return;
         }
 
-        double p = - Math.pow(secondPixel.x - firstPixel.x, 2) / (2 * (secondPixel.y - firstPixel.y));
+        double p = -Math.pow(secondPixel.x - firstPixel.x, 2) / (2 * (secondPixel.y - firstPixel.y));
         Pixel pixel45 = new Pixel(p, -p / 2);
 
         double e;

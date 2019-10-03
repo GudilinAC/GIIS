@@ -14,31 +14,17 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class View {
+    private final Image clear = new Image("clear.png");
     private Controller controller = new Controller();
-
     private Color[][] grid = new Color[Settings.MAX_X][Settings.MAX_Y];
-
-    private void setSell(int x, int y, Color color){
-        if (x >= Settings.MAX_X || y >= Settings.MAX_Y || x < 0 || y < 0)
-            return;
-        grid[x][y] = color;
-    }
-
-    private Color getSell(int x, int y){
-        if (x >= Settings.MAX_X || y >= Settings.MAX_Y || x < 0 || y < 0)
-            return Color.WHITE;
-        return grid[x][y];
-    }
-
     private boolean debug = false;
     private Iterator<Pixel> iterator;
-
     @FXML
     private Canvas canvas;
     private GraphicsContext context;
     private PixelWriter writer;
-
-    private final Image clear = new Image("clear.png");
+    private LinkedList<Pixel> tempList = null;
+    private boolean scale = true;
 
 //    private void drawGrid() {
 //        for (int i = 0; i < Settings.MAX_X; i++)
@@ -64,6 +50,18 @@ public class View {
 //        }
 //    }
 
+    private void setSell(int x, int y, Color color) {
+        if (x >= Settings.MAX_X || y >= Settings.MAX_Y || x < 0 || y < 0)
+            return;
+        grid[x][y] = color;
+    }
+
+    private Color getSell(int x, int y) {
+        if (x >= Settings.MAX_X || y >= Settings.MAX_Y || x < 0 || y < 0)
+            return Color.WHITE;
+        return grid[x][y];
+    }
+
     @FXML
     private void initialize() {
         context = canvas.getGraphicsContext2D();
@@ -71,9 +69,7 @@ public class View {
         loadClear();
     }
 
-    private LinkedList<Pixel> tempList = null;
-
-    private void draw(Pixel pixel, Color color){
+    private void draw(Pixel pixel, Color color) {
         if (scale) {
             int dx = pixel.x * 9 + 1;
             int dy = pixel.y * 9 + 1;
@@ -95,7 +91,7 @@ public class View {
         draw(pixel, color);
     }
 
-    private void drawTemp(Pixel pixel){
+    private void drawTemp(Pixel pixel) {
         if (isOutOfLimits(pixel))
             return;
         draw(pixel, pixel.color);
@@ -127,8 +123,6 @@ public class View {
             drawPixel(iterator.next());
     }
 
-    private boolean scale = true;
-
     public void scale(ActionEvent e) {
         scale = !scale;
         Settings.scale(scale);
@@ -153,7 +147,7 @@ public class View {
         loadClear();
     }
 
-    private void clearTemp(){
+    private void clearTemp() {
         if (tempList != null)
             tempList.forEach(p -> draw(p, getSell(p.x, p.y)));
         tempList = null;
@@ -164,7 +158,7 @@ public class View {
     }
 
     public void ellipse(ActionEvent e) {
-
+        controller.newAlgorithm(Type.Ellipse);
     }
 
     public void parabola(ActionEvent e) {
@@ -189,7 +183,6 @@ public class View {
         if (!debug)
             iterator.forEachRemaining(this::drawPixel);
     }
-
 
 
     public void mouseMove(MouseEvent e) {

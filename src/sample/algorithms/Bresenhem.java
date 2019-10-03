@@ -28,8 +28,7 @@ public class Bresenhem extends TwoDotsAlgorithm {
                 e += 2 * dy;
                 pixels.add(new Pixel(x, y));
             }
-        }
-        else {
+        } else {
             int e = 2 * dx - dy;
 
             for (int i = 0; i < dy; i++) {

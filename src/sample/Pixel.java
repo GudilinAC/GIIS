@@ -7,21 +7,21 @@ public class Pixel {
     public final int y;
     public Color color;
 
-    public Pixel(int x, int y, Color color){
+    public Pixel(int x, int y, Color color) {
         this.x = x;
         this.y = y;
         this.color = color;
     }
 
-    public Pixel(int x, int y){
+    public Pixel(int x, int y) {
         this(x, y, Color.BLACK);
     }
 
-    public Pixel(double x, double y, Color color){
+    public Pixel(double x, double y, Color color) {
         this((int) (x), (int) (y), color);
     }
 
-    public Pixel(double x, double y){
+    public Pixel(double x, double y) {
         this(x, y, Color.BLACK);
     }
 }

@@ -1,15 +1,6 @@
 package sample.algorithms;
 
 public class AlgorithmFactory {
-    public enum Type {
-        Cda,
-        Bresenhem,
-        Vu,
-        Circle,
-        Ellipse,
-        Parabola
-    }
-
     public static DrawAlgorithm getAlgorithm(Type type) {
         if (type == null) return new Empty();
         switch (type) {
@@ -28,5 +19,14 @@ public class AlgorithmFactory {
             default:
                 return null;
         }
+    }
+
+    public enum Type {
+        Cda,
+        Bresenhem,
+        Vu,
+        Circle,
+        Ellipse,
+        Parabola
     }
 }

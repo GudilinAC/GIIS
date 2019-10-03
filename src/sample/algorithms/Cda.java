@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class Cda extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
-        int d = Math.max (Math.abs(secondPixel.x - firstPixel.x), Math.abs(secondPixel.y - firstPixel.y));
+        int d = Math.max(Math.abs(secondPixel.x - firstPixel.x), Math.abs(secondPixel.y - firstPixel.y));
         double dx = ((double) (secondPixel.x - firstPixel.x)) / d;
         double dy = ((double) (secondPixel.y - firstPixel.y)) / d;
 

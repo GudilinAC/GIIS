@@ -4,13 +4,13 @@ import sample.Pixel;
 
 import java.util.LinkedList;
 
-public abstract class TwoDotsAlgorithm implements DrawAlgorithm{
+public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
     protected Pixel firstPixel = null;
     protected Pixel secondPixel = null;
 
     @Override
     public LinkedList<Pixel> drawAndReset(Pixel pixel) {
-        if (firstPixel == null){
+        if (firstPixel == null) {
             firstPixel = pixel;
             LinkedList<Pixel> pixels = new LinkedList<>();
             pixels.add(pixel);

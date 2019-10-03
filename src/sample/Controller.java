@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class Controller {
     private DrawAlgorithm drawAlgorithm = AlgorithmFactory.getAlgorithm(null);
 
-    public void newAlgorithm(Type type){
+    public void newAlgorithm(Type type) {
         drawAlgorithm = AlgorithmFactory.getAlgorithm(type);
     }
 
@@ -18,7 +18,7 @@ public class Controller {
         return drawAlgorithm.drawNoReset(pixel);
     }
 
-    public Iterator<Pixel> click(Pixel pixel){
+    public Iterator<Pixel> click(Pixel pixel) {
         return drawAlgorithm.drawAndReset(pixel).iterator();
     }
 }
