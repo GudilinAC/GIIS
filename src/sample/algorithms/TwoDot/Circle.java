@@ -15,14 +15,17 @@ public class Circle extends TwoDotsAlgorithm {
         Pixel pixel45 = new Pixel(Math.pow(R2 / 2., 0.5) + 0.5, Math.pow(R2 / 2., 0.5) + 0.5);
         ArrayList<Pixel> segment = new ArrayList<>(pixel45.x * 2);
 
-        int e;
         int x = (int) (R + 0.5);
-        int y;
+        int y = 0;
+        int e = x * x + y * y - R2;
 
-        for (y = 0; y <= pixel45.y; y++) {
-            e = x * x + y * y - R2;
-            if (e > 0)
+        for (; y <= pixel45.y; y++) {
+            e += 2 * y + 1;
+
+            if (e > 0) {
                 x--;
+                e += -2 * x + 1;
+            }
 
             segment.add(new Pixel(x, y));
         }
