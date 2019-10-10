@@ -19,4 +19,9 @@ public class Empty implements DrawAlgorithm {
     public LinkedList<Pixel> drawAll(Pixel... inputs) {
         return new LinkedList<>();
     }
+
+    @Override
+    public void clear() {
+
+    }
 }
