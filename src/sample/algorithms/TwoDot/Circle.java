@@ -1,5 +1,6 @@
 package sample.algorithms.TwoDot;
 
+import javafx.scene.paint.Color;
 import sample.Pixel;
 
 import java.util.ArrayList;
@@ -10,14 +11,15 @@ public class Circle extends TwoDotsAlgorithm {
     @Override
     protected void draw(LinkedList<Pixel> pixels) {
         int R2 = (int) (Math.pow(secondPixel.x - firstPixel.x, 2) + Math.pow(secondPixel.y - firstPixel.y, 2));
-        double R = Math.pow(R2, 0.5);
 
         Pixel pixel45 = new Pixel(Math.pow(R2 / 2., 0.5) + 0.5, Math.pow(R2 / 2., 0.5) + 0.5);
         ArrayList<Pixel> segment = new ArrayList<>(pixel45.x * 2);
 
-        int x = (int) (R + 0.5);
+        int x = (int) (Math.pow(R2, 0.5) + 0.5);
         int y = 0;
-        int e = x * x + y * y - R2;
+        int e = (int)(2 - 2 * Math.pow(R2, 0.5));
+
+        segment.add(new Pixel(x, y));
 
         for (; y <= pixel45.y; y++) {
             e += 2 * y + 1;
@@ -30,7 +32,7 @@ public class Circle extends TwoDotsAlgorithm {
             segment.add(new Pixel(x, y));
         }
 
-        for (int i = segment.size() - 2; i > 0; i--) {
+        for (int i = segment.size() - 1; i > 0; i--) {
             Pixel p = segment.get(i);
             //noinspection SuspiciousNameCombination
             segment.add(new Pixel(p.y, p.x));
