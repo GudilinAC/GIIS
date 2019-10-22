@@ -1,6 +1,5 @@
 package sample.algorithms.TwoDot;
 
-import javafx.scene.paint.Color;
 import sample.Pixel;
 import sample.Settings;
 
@@ -25,7 +24,6 @@ public class Parabola extends TwoDotsAlgorithm {
         }
 
         double p = -Math.pow(secondPixel.x - firstPixel.x, 2) / (2 * (secondPixel.y - firstPixel.y));
-        Pixel pixel45 = new Pixel(p, -p / 2);
 
         int x = 0;
         int y = 0;
@@ -35,7 +33,7 @@ public class Parabola extends TwoDotsAlgorithm {
         int sy = sign(p);
         double e = - sy * 2 * p;
 
-        while (x < Math.abs(pixel45.x) && x < Settings.MAX_X){
+        while (x < Math.abs(p) && x < Settings.MAX_X){
             x++;
             e += 2 * x + 1;
 

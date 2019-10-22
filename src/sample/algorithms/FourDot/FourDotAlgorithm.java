@@ -37,15 +37,19 @@ public abstract class FourDotAlgorithm implements DrawAlgorithm {
         if (pixel1 == null) {
             pixel1 = pixel;
             pixels.add(pixel);
+            pixel1 = null;
         } else if (pixel2 == null) {
             pixel2 = pixel;
             draw2(pixels);
+            pixel2 = null;
         } else if (pixel3 == null) {
             pixel3 = pixel;
             draw3(pixels);
+            pixel3 = null;
         } else {
             pixel4 = pixel;
             draw4(pixels);
+            pixel4 = null;
         }
         return pixels;
     }
