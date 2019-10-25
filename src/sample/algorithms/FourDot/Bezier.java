@@ -1,6 +1,7 @@
 package sample.algorithms.FourDot;
 
 import sample.Pixel;
+import sample.Settings;
 import sample.algorithms.Matrix;
 
 import java.util.LinkedList;
@@ -37,7 +38,8 @@ public class Bezier extends FourDotAlgorithm {
 
         Matrix resInts = randInts.mult(initInts);
 
-        for (double t = 0; t <= 1; t += 0.0001) {
+        double incr = 1/(Settings.MAX_X * 10);
+        for (double t = 0; t <= 1; t += incr) {
             Matrix input = new Matrix(new double[][]{{t * t * t, t * t, t, 1}});
             Matrix res = input.mult(resInts);
             pixels.add(new Pixel(res.get(0, 0), res.get(0, 1)));
