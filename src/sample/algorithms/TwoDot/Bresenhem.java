@@ -3,11 +3,11 @@ package sample.algorithms.TwoDot;
 import sample.Pixel;
 import sample.algorithms.Global;
 
-import java.util.LinkedList;
+import java.util.Collection;
 
 public class Bresenhem extends TwoDotsAlgorithm {
     @Override
-    protected void draw(LinkedList<Pixel> pixels) {
+    protected void draw(Collection<Pixel> pixels) {
         int x = firstPixel.x;
         int y = firstPixel.y;
         int dx = secondPixel.x - firstPixel.x;

@@ -4,8 +4,8 @@ import sample.algorithms.AlgorithmFactory;
 import sample.algorithms.AlgorithmFactory.Type;
 import sample.algorithms.DrawAlgorithm;
 
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 public class Controller {
     private DrawAlgorithm drawAlgorithm = AlgorithmFactory.getAlgorithm(null);
@@ -14,7 +14,7 @@ public class Controller {
         drawAlgorithm = AlgorithmFactory.getAlgorithm(type);
     }
 
-    public LinkedList<Pixel> followMouse(Pixel pixel) {
+    public Collection<Pixel> followMouse(Pixel pixel) {
         return drawAlgorithm.drawNoReset(pixel);
     }
 

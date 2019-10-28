@@ -11,7 +11,7 @@ public class Matrix {
         matrix = new double[height][length];
     }
 
-    public Matrix(double[][] mat){
+    public Matrix(double[][] mat) {
         this.height = mat.length;
         this.length = mat[0].length;
         matrix = new double[height][length];

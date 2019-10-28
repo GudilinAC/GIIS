@@ -2,11 +2,11 @@ package sample.algorithms.TwoDot;
 
 import sample.Pixel;
 
-import java.util.LinkedList;
+import java.util.Collection;
 
 public class Cda extends TwoDotsAlgorithm {
     @Override
-    protected void draw(LinkedList<Pixel> pixels) {
+    protected void draw(Collection<Pixel> pixels) {
         int d = Math.max(Math.abs(secondPixel.x - firstPixel.x), Math.abs(secondPixel.y - firstPixel.y));
         double dx = ((double) (secondPixel.x - firstPixel.x)) / d;
         double dy = ((double) (secondPixel.y - firstPixel.y)) / d;

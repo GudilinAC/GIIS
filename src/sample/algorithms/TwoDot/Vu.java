@@ -3,13 +3,13 @@ package sample.algorithms.TwoDot;
 import javafx.scene.paint.Color;
 import sample.Pixel;
 
-import java.util.LinkedList;
+import java.util.Collection;
 
 import static sample.algorithms.Global.sign;
 
 public class Vu extends TwoDotsAlgorithm {
     @Override
-    protected void draw(LinkedList<Pixel> pixels) {
+    protected void draw(Collection<Pixel> pixels) {
         int x = firstPixel.x;
         int y = firstPixel.y;
         double dx = secondPixel.x - firstPixel.x;

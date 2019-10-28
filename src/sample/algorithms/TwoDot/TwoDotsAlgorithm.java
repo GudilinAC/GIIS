@@ -3,6 +3,7 @@ package sample.algorithms.TwoDot;
 import sample.Pixel;
 import sample.algorithms.DrawAlgorithm;
 
+import java.util.Collection;
 import java.util.LinkedList;
 
 public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
@@ -10,7 +11,7 @@ public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
     protected Pixel secondPixel = null;
 
     @Override
-    public LinkedList<Pixel> drawAndReset(Pixel pixel) {
+    public Collection<Pixel> drawAndReset(Pixel pixel) {
         LinkedList<Pixel> pixels = new LinkedList<>();
         if (firstPixel == null) {
             firstPixel = pixel;
@@ -25,7 +26,7 @@ public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
     }
 
     @Override
-    public LinkedList<Pixel> drawNoReset(Pixel pixel) {
+    public Collection<Pixel> drawNoReset(Pixel pixel) {
         LinkedList<Pixel> pixels = new LinkedList<>();
         if (firstPixel != null) {
             secondPixel = pixel;
@@ -36,7 +37,7 @@ public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
     }
 
     @Override
-    public LinkedList<Pixel> drawAll(Pixel... inputs) {
+    public Collection<Pixel> drawAll(Pixel... inputs) {
         LinkedList<Pixel> pixels = new LinkedList<>();
         for (Pixel pixel : inputs) {
             pixels.addAll(drawAndReset(pixel));
@@ -45,9 +46,9 @@ public abstract class TwoDotsAlgorithm implements DrawAlgorithm {
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         firstPixel = null;
     }
 
-    protected abstract void draw(LinkedList<Pixel> pixels);
+    protected abstract void draw(Collection<Pixel> pixels);
 }

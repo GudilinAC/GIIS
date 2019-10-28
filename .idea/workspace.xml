@@ -3,8 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/AlgorithmFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/AlgorithmFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/DrawAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/DrawAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/Empty.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/algorithms/FourDot/Bezier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/FourDot/Bezier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/algorithms/FourDot/Ermit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/FourDot/Ermit.java" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/FourDot/FourDotAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/FourDot/FourDotAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/MultiDot/BSpline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/MultiDot/BSpline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/MultiDot/MultiDotAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/MultiDot/MultiDotAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Bresenhem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Bresenhem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Cda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Cda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Ellipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Parabola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Parabola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/TwoDotsAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/TwoDotsAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Vu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/algorithms/TwoDot/Vu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,11 +74,13 @@
     <breakpoint_rules converted="true" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
+<<<<<<< Updated upstream
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -165,6 +187,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -180,6 +204,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< Updated upstream
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -208,6 +233,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="175" />
@@ -218,68 +245,6 @@
   <component name="ProjectId" id="1Rf4DjCsAns2aQmNk4vvySO5278" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="FourDot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="MultiDot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GIIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GIIS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="TwoDot" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -293,13 +258,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
@@ -406,6 +371,7 @@
       <workItem from="1570044702835" duration="3499000" />
       <workItem from="1570085016617" duration="9903000" />
       <workItem from="1570105599404" duration="6143000" />
+<<<<<<< Updated upstream
       <workItem from="1570617185516" duration="8024000" />
       <workItem from="1570801182478" duration="1236000" />
       <workItem from="1571142903090" duration="5424000" />
@@ -494,6 +460,17 @@
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout-to-restore>
   </component>
+=======
+      <workItem from="1570617185516" duration="4504000" />
+      <workItem from="1570787006054" duration="1272000" />
+      <workItem from="1571840856970" duration="8975000" />
+      <workItem from="1571939072610" duration="1052000" />
+      <workItem from="1572167670608" duration="2584000" />
+      <workItem from="1572189589927" duration="4997000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> Stashed changes
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -503,12 +480,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -534,6 +505,7 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
+<<<<<<< Updated upstream
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/algorithms/Global.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -789,4 +761,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> Stashed changes
 </project>

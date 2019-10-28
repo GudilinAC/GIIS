@@ -2,11 +2,12 @@ package sample.algorithms.TwoDot;
 
 import sample.Pixel;
 
+import java.util.Collection;
 import java.util.LinkedList;
 
 public class Ellipse extends TwoDotsAlgorithm {
     @Override
-    protected void draw(LinkedList<Pixel> pixels) {
+    protected void draw(Collection<Pixel> pixels) {
         int dx = Math.abs(secondPixel.x - firstPixel.x);
         int dy = Math.abs(secondPixel.y - firstPixel.y);
 

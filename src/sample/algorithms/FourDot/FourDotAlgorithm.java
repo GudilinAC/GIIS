@@ -3,7 +3,9 @@ package sample.algorithms.FourDot;
 import sample.Pixel;
 import sample.algorithms.DrawAlgorithm;
 
-import java.util.LinkedList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class FourDotAlgorithm implements DrawAlgorithm {
     protected Pixel pixel1;
@@ -12,8 +14,8 @@ public abstract class FourDotAlgorithm implements DrawAlgorithm {
     protected Pixel pixel4;
 
     @Override
-    public LinkedList<Pixel> drawAndReset(Pixel pixel) {
-        LinkedList<Pixel> pixels = new LinkedList<>();
+    public Collection<Pixel> drawAndReset(Pixel pixel) {
+        Set<Pixel> pixels = new HashSet<>();
         if (pixel1 == null) {
             pixel1 = pixel;
             pixels.add(pixel);
@@ -32,8 +34,8 @@ public abstract class FourDotAlgorithm implements DrawAlgorithm {
     }
 
     @Override
-    public LinkedList<Pixel> drawNoReset(Pixel pixel) {
-        LinkedList<Pixel> pixels = new LinkedList<>();
+    public Collection<Pixel> drawNoReset(Pixel pixel) {
+        Set<Pixel> pixels = new HashSet<>();
         if (pixel1 == null) {
             pixel1 = pixel;
             pixels.add(pixel);
@@ -55,8 +57,8 @@ public abstract class FourDotAlgorithm implements DrawAlgorithm {
     }
 
     @Override
-    public LinkedList<Pixel> drawAll(Pixel... inputs) {
-        LinkedList<Pixel> pixels = new LinkedList<>();
+    public Collection<Pixel> drawAll(Pixel... inputs) {
+        Set<Pixel> pixels = new HashSet<>();
         for (Pixel pixel : inputs) {
             pixels.addAll(drawAndReset(pixel));
         }
@@ -68,9 +70,9 @@ public abstract class FourDotAlgorithm implements DrawAlgorithm {
         pixel1 = pixel2 = pixel3 = pixel4 = null;
     }
 
-    protected abstract void draw2(LinkedList<Pixel> pixels);
+    protected abstract void draw2(Collection<Pixel> pixels);
 
-    protected abstract void draw3(LinkedList<Pixel> pixels);
+    protected abstract void draw3(Collection<Pixel> pixels);
 
-    protected abstract void draw4(LinkedList<Pixel> pixels);
+    protected abstract void draw4(Collection<Pixel> pixels);
 }

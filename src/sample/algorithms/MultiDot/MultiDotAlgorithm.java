@@ -3,18 +3,16 @@ package sample.algorithms.MultiDot;
 import sample.Pixel;
 import sample.algorithms.DrawAlgorithm;
 
-
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 public abstract class MultiDotAlgorithm implements DrawAlgorithm {
-    protected LinkedList<Pixel> inputs = new LinkedList<>();
+    protected List<Pixel> inputs = new LinkedList<>();
 
     @Override
-    public LinkedList<Pixel> drawAndReset(Pixel pixel) {
+    public Collection<Pixel> drawAndReset(Pixel pixel) {
         inputs.add(pixel);
-        LinkedList<Pixel> pixels = new LinkedList<>();
-        if (inputs.size() < 2){
+        Set<Pixel> pixels = new HashSet<>();
+        if (inputs.size() < 1) {
             pixels.add(pixel);
         } else {
             draw(pixels);
@@ -23,30 +21,28 @@ public abstract class MultiDotAlgorithm implements DrawAlgorithm {
     }
 
     @Override
-    public LinkedList<Pixel> drawNoReset(Pixel pixel) {
-        inputs.add(pixel);
-        LinkedList<Pixel> pixels = new LinkedList<>();
-        if (inputs.size() < 2){
-            pixels.add(pixel);
-        } else {
+    public Collection<Pixel> drawNoReset(Pixel pixel) {
+        Set<Pixel> pixels = new HashSet<>();
+        if (inputs.size() > 1) {
+            inputs.add(pixel);
             draw(pixels);
-            inputs.removeLast();
+            inputs.remove(inputs.size() - 1);
         }
         return pixels;
     }
 
     @Override
-    public LinkedList<Pixel> drawAll(Pixel... inputs) {
+    public Collection<Pixel> drawAll(Pixel... inputs) {
         this.inputs.addAll(Arrays.asList(inputs));
-        LinkedList<Pixel> pixels = new LinkedList<>();
+        Set<Pixel> pixels = new HashSet<>();
         draw(pixels);
         return pixels;
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         inputs.clear();
     }
 
-    protected abstract void draw(LinkedList<Pixel> pixels);
+    protected abstract void draw(Collection<Pixel> pixels);
 }

@@ -2,14 +2,14 @@ package sample.algorithms;
 
 import sample.Pixel;
 
-import java.util.LinkedList;
+import java.util.Collection;
 
 public interface DrawAlgorithm {
-    LinkedList<Pixel> drawAndReset(Pixel pixel);
+    Collection<Pixel> drawAndReset(Pixel pixel);
 
-    LinkedList<Pixel> drawNoReset(Pixel pixel);
+    Collection<Pixel> drawNoReset(Pixel pixel);
 
-    LinkedList<Pixel> drawAll(Pixel... inputs);
+    Collection<Pixel> drawAll(Pixel... inputs);
 
     void clear();
 }

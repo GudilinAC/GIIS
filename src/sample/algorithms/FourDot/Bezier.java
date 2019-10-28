@@ -4,22 +4,9 @@ import sample.Pixel;
 import sample.Settings;
 import sample.algorithms.Matrix;
 
-import java.util.LinkedList;
+import java.util.Collection;
 
 public class Bezier extends FourDotAlgorithm {
-    @Override
-    protected void draw2(LinkedList<Pixel> pixels) {
-        pixels.add(pixel1);
-        pixels.add(pixel2);
-    }
-
-    @Override
-    protected void draw3(LinkedList<Pixel> pixels) {
-        pixels.add(pixel1);
-        pixels.add(pixel2);
-        pixels.add(pixel3);
-    }
-
     private Matrix randInts = new Matrix(new double[][]{
             {-1, 3, -3, 1},
             {3, -6, 3, 0},
@@ -28,7 +15,20 @@ public class Bezier extends FourDotAlgorithm {
     });
 
     @Override
-    protected void draw4(LinkedList<Pixel> pixels) {
+    protected void draw2(Collection<Pixel> pixels) {
+        pixels.add(pixel1);
+        pixels.add(pixel2);
+    }
+
+    @Override
+    protected void draw3(Collection<Pixel> pixels) {
+        pixels.add(pixel1);
+        pixels.add(pixel2);
+        pixels.add(pixel3);
+    }
+
+    @Override
+    protected void draw4(Collection<Pixel> pixels) {
         Matrix initInts = new Matrix(new double[][]{
                 {pixel1.x, pixel1.y},
                 {pixel2.x, pixel3.y},

@@ -10,8 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import sample.algorithms.AlgorithmFactory.Type;
 
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 public class View {
     private final Image clear = new Image("clear.png");
@@ -23,7 +23,7 @@ public class View {
     private Canvas canvas;
     private GraphicsContext context;
     private PixelWriter writer;
-    private LinkedList<Pixel> tempList = null;
+    private Collection<Pixel> tempList = null;
     private boolean scale = true;
 
 //    private void drawGrid() {
@@ -130,15 +130,15 @@ public class View {
     }
 
     public void cda(ActionEvent e) {
-        controller.newAlgorithm(Type.Cda);
+        newAlgorithm(Type.Cda);
     }
 
     public void bresenhem(ActionEvent e) {
-        controller.newAlgorithm(Type.Bresenhem);
+        newAlgorithm(Type.Bresenhem);
     }
 
     public void vu(ActionEvent e) {
-        controller.newAlgorithm(Type.Vu);
+        newAlgorithm(Type.Vu);
     }
 
     public void clear(ActionEvent e) {
@@ -154,31 +154,32 @@ public class View {
     }
 
     public void circle(ActionEvent e) {
-        controller.newAlgorithm(Type.Circle);
+        newAlgorithm(Type.Circle);
     }
 
     public void ellipse(ActionEvent e) {
-        controller.newAlgorithm(Type.Ellipse);
+        newAlgorithm(Type.Ellipse);
     }
 
     public void parabola(ActionEvent e) {
-        controller.newAlgorithm(Type.Parabola);
+        newAlgorithm(Type.Parabola);
     }
 
-    public void ermit(ActionEvent e){
-        controller.newAlgorithm(Type.Ermit);
+    public void ermit(ActionEvent e) {
+        newAlgorithm(Type.Ermit);
     }
 
-    public void bezier(ActionEvent e){
-        controller.newAlgorithm(Type.Bezier);
+    public void bezier(ActionEvent e) {
+        newAlgorithm(Type.Bezier);
     }
 
-    public void bspline(ActionEvent e){
-        controller.newAlgorithm(Type.BSpline);
+    public void bspline(ActionEvent e) {
+        newAlgorithm(Type.BSpline);
     }
 
-    public void reducting(ActionEvent e){
-
+    private void newAlgorithm(Type type){
+        tempList = null;
+        controller.newAlgorithm(type);
     }
 
     private Pixel getPixel(MouseEvent e) {

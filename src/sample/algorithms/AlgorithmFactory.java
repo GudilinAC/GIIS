@@ -1,8 +1,8 @@
 package sample.algorithms;
 
-import sample.algorithms.MultiDot.BSpline;
 import sample.algorithms.FourDot.Bezier;
 import sample.algorithms.FourDot.Ermit;
+import sample.algorithms.MultiDot.BSpline;
 import sample.algorithms.TwoDot.*;
 
 public class AlgorithmFactory {

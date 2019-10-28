@@ -3,14 +3,14 @@ package sample.algorithms.TwoDot;
 import sample.Pixel;
 import sample.Settings;
 
-import java.util.LinkedList;
+import java.util.Collection;
 
 import static sample.algorithms.Global.sign;
 
 public class Parabola extends TwoDotsAlgorithm {
 
     @Override
-    protected void draw(LinkedList<Pixel> pixels) {
+    protected void draw(Collection<Pixel> pixels) {
         if (secondPixel.x == firstPixel.x) {
             int s = sign(secondPixel.y - firstPixel.y);
             for (int i = firstPixel.y; i < Settings.MAX_Y && i >= 0; i += s)
@@ -31,9 +31,9 @@ public class Parabola extends TwoDotsAlgorithm {
         pixels.add(firstPixel);
 
         int sy = sign(p);
-        double e = - sy * 2 * p;
+        double e = -sy * 2 * p;
 
-        while (x < Math.abs(p) && x < Settings.MAX_X){
+        while (x < Math.abs(p) && x < Settings.MAX_X) {
             x++;
             e += 2 * x + 1;
 
